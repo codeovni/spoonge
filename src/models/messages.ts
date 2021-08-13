@@ -4,7 +4,11 @@ interface Object {
     title?: string,
     color?: number,
     url?: string,
-    author?: string,
+    author?: {
+        name: string,
+        iconURL?: string,
+        URL?: string
+    },
     description?: string,
     thumbnail?: string,
     fields?: any,
@@ -81,7 +85,7 @@ export default class Message {
         }
 
         if(content.author) {
-            messageEmbed.setAuthor(`${content.author}`);
+            messageEmbed.setAuthor(content.author.name, content.author.iconURL, content.author.URL);
         }
 
         if(content.description) {
