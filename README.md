@@ -20,7 +20,7 @@ This is an open source discord bot. I am creating it with the new Discord comman
   |
   <a href="#commands">Commands</a>
   |
-  <a href="#commmunity">Community</a>
+  <a href="#community">Community</a>
   |
   <a href="#libs-used">Libs used</a>
   |
