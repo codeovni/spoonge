@@ -13,7 +13,9 @@ This is an open source discord bot. I am creating it with the new Discord comman
 <a href="https://github.com/users/losdevpath/projects/2">
   <img src="https://img.shields.io/static/v1?label=&message=Spoonge Project&color=555c63&logo=github&logoColor=FFFFFF">
 </a>
-####
+
+<br><br>
+
 <p>
 [
   <a href="#spoonge">Spoonge</a>
@@ -29,7 +31,7 @@ This is an open source discord bot. I am creating it with the new Discord comman
   <a href="#license">License</a>
 ]
 </p>
-####
+
 # Features
 These are the characteristics that the bot will have when it is finished.
 - **Admin**: self-role assignment, server announcements
@@ -85,6 +87,7 @@ All commands are created with the new **slash commands** (/) from Discord.
     <tr>
       <td><b>📁 Command</b></td>
       <td><b>📄 Description</b></td>
+      <td><b>📄 Permissions</b></td>
       <td><b>✔️ Options</b></td>
     </tr>
   </thead>
@@ -93,15 +96,18 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>ping</td>
       <td>Show bot's ping</td>
       <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>say</td>
       <td>Send text as a bot with direct message or embed</td>
+      <td>MANAGE_MESSAGES</td>
       <td>message: (text)<br>embed: (boolean)</td>
     </tr>
     <tr>
       <td>4chan</td>
       <td>Show random images from 4chan.org</td>
+      <td></td>
       <td>categories & boards</td>
     </tr>
   </tbody>

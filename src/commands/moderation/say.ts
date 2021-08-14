@@ -35,7 +35,7 @@ var command = {
  * @param {String[]} args
  */
 function callback(client:any, interaction:any, args:any) {
-    if(!commands.permission(interaction, ['ADMINISTRATOR', 'MANAGE_MESSAGES'])) return;
+    if(!commands.permission(interaction, ['MANAGE_MESSAGES'])) return;
     const [ message, embed ] = args;
     if(embed) {
         messages.embed(interaction, { description: message, color: 16759552 }, true);
