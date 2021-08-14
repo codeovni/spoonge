@@ -59,13 +59,13 @@ pm2 start app/startup.js --name "Spoonge"
 ```
 
 ### 2. Invite bot to your server
-Create new application on [Discord](https://discord.com/developers/applications) and invite bot to your server with this link.
+Create new application on [Discord Developers](https://discord.com/developers/applications) and invite bot to your server with this link.
 ```shell
 https://discord.com/api/oauth2/authorize?client_id=[BOT_CLIENT_ID]&permissions=8&scope=bot%20applications.commands
 ```
 
 ### 3. Bot token and mongodb data
-Rename `.env.example` to `.env` and fill in the information.
+Rename `.env.example` to `.env` and fill the information.
 ```shell
 DATABASE_CLUSTER=[mongodb_cluster_url]
 DATABASE_NAME=[database_name]
