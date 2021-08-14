@@ -13,18 +13,14 @@ This is an open source discord bot. I am creating it with the new Discord comman
 <a href="https://github.com/users/losdevpath/projects/2">
   <img src="https://img.shields.io/static/v1?label=&message=Spoonge Project&color=555c63&logo=github&logoColor=FFFFFF">
 </a>
-
 <br><br>
-
 <p>
 [
-  <a href="#spoonge">Spoonge</a>
-  |
   <a href="#installation">Installation</a>
   |
   <a href="#commands">Commands</a>
   |
-  <a href="#community">Community</a>
+  <a href="#commmunity">Community</a>
   |
   <a href="#libs-used">Libs used</a>
   |
@@ -59,7 +55,7 @@ npm run build
 npm run start
 
 # Start bot with pm2
-pm2 start app/startup.js --name "Soonge"
+pm2 start app/startup.js --name "Spoonge"
 ```
 
 ### 2. Invite bot to your server
