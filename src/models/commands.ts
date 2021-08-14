@@ -99,7 +99,7 @@ export default class Commands {
      */
     async permission(interaction:any, permissions:any):Promise<boolean> {
         const member: GuildMember = interaction.member;
-        if(member.permissions.has(permissions)) {
+        if(!member.permissions.has(permissions)) {
             messages.embed(interaction, { title: 'Permissions', description: 'You don\'t have permission to use this command', color: 16722737 } );
             return false;
         } else {

@@ -32,6 +32,7 @@ export default class Message {
     */
     send(interaction:any, content:string) {
         /* Delete message of interaction and send embed */
+        interaction.deferReply({ ephemeral: false }).catch(() => {});
         interaction.deleteReply().then(() => {
             const channel = interaction.guild.channels.cache.get(interaction.channelId);
             return channel.send({ content: content });
