@@ -109,7 +109,7 @@ All commands are created with the new **slash commands** (/) from Discord.
   </tbody>
 </table>
 
-# Comunity
+# Community
 
 Sponge is in continuous development and you can see all the tests and news in the Discord community. New features are constantly added.
 
@@ -120,7 +120,6 @@ Join us on our **[Official Discord Server](https://discord.gg/KR25yRg)**! (*Span
 These are the 📚 libraries that I have used to create the bot.
 
 - [discord.js](https://github.com/discordjs/discord.js)
-- [@discordjs/opus](https://github.com/discordjs/opus)
 - [dotenv](https://github.com/motdotla/dotenv)
 - [dateformat](https://github.com/felixge/node-dateformat)
 - [ffmpeg-static](https://github.com/eugeneware/ffmpeg-static)
@@ -128,6 +127,7 @@ These are the 📚 libraries that I have used to create the bot.
 - [winston](https://github.com/winstonjs/winston)
 - [yt-search](https://github.com/talmobi/yt-search)
 - [ytdl-core](https://github.com/fent/node-ytdl-core)
+- [kleur](https://github.com/lukeed/kleur)
 
 # License
 

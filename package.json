@@ -4,9 +4,11 @@
   "description": "Open source discord bot",
   "main": "./app/index.js",
   "scripts": {
+    "start": "node ./app/startup.js",
     "build": "npm run clean-build && tsc",
+    "clean": "clean-build && clear-cache",
     "clean-build": "rimraf app",
-    "start": "node ./app/startup.js"
+    "clean-cache": "npm cache rm --force && npm cache verify"
   },
   "repository": {
     "type": "git",
