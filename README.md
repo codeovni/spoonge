@@ -83,8 +83,7 @@ All commands are created with the new **slash commands** (/) from Discord.
     <tr>
       <td><b>📁 Command</b></td>
       <td><b>📄 Description</b></td>
-      <td><b>📄 Permissions</b></td>
-      <td><b>✔️ Options</b></td>
+      <td><b>✔️ Permissions</b></td>
     </tr>
   </thead>
   <tbody>
@@ -92,19 +91,16 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>ping</td>
       <td>Show bot's ping</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
       <td>say</td>
       <td>Send text as a bot with direct message or embed</td>
       <td>MANAGE_MESSAGES</td>
-      <td>message: (text)<br>embed: (boolean)</td>
     </tr>
     <tr>
       <td>4chan</td>
       <td>Show random images from 4chan.org</td>
       <td></td>
-      <td>categories & boards</td>
     </tr>
   </tbody>
 </table>
