@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
 
-interface Object {
+interface EmbedObject {
     title?: string,
     color?: number,
     url?: string,
@@ -69,7 +69,7 @@ export default class Message {
     * @return {*} 
     * @memberof Message
     */
-    embed(interaction:any, content:Object, noreply:boolean = false) {
+    embed(interaction:any, content:EmbedObject, noreply:boolean = false) {
 
         const messageEmbed = new MessageEmbed();
 
