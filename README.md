@@ -73,7 +73,7 @@ DATABASE_USERNAME=[db_username]
 DATABASE_PASSWORD=[db_password]
 APP_TOKEN=[discord_bot_token] # Token from https://discord.com/developers/applications
 DEV_MODE=[true/false] # Set to false only in production
-GUILD_ID=[your_guild_id] # Only if dev mode is set to true
+GUILD_ID=[your_guild_id] # Only if DEV_MODE is true
 ```
 
 # Commands
