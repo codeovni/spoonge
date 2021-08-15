@@ -31,11 +31,6 @@ class Database {
                 log.info('MongoDB has successfully connected');
                 resolve(true);
     
-                //this.insert('guilds', {id:'123'});
-                //this.select('guilds', {id:'123'}).then((res:any) => { console.log(res[1]); });
-                //this.update('guilds', {id:'125'}, {id:'123'});
-                //this.remove('guilds', {id:125});
-    
             });
             connection.on('error', (err) => {
                 log.error('MongoDB error:');

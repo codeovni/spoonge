@@ -1,18 +1,22 @@
-import { client, slashCommands } from '../utils/bot';
-import Messages from '../models/messages';
+import { client, commands } from '../utils/bot';
 import { GuildMember } from "discord.js";
+import Messages from './messages';
 import Logger from '../utils/logger';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import kleur from 'kleur';
 
 dotenv.config();
 
-const log = new Logger();
 const messages = new Messages();
+const log = new Logger();
 const root = fs.realpathSync('./app');
+const check = kleur.green('✔');
 
-var commandsArray:any = []
+var devMode = process.env.DEV_MODE;
+var guildID = process.env.GUILD_ID;
+var commandList:any = []
 
 /**
  * Commands class
@@ -20,6 +24,12 @@ var commandsArray:any = []
  * @class Commands
  */
 export default class Commands {
+    /**
+     * Load all commands
+     *
+     * @return {*} 
+     * @memberof Commands
+     */
     load() {
         return new Promise(async (resolve) => {
 
@@ -46,10 +56,9 @@ export default class Commands {
                     /* Import command */
                     await import(commandPath).then(res => {
 
-                        if(res) {
-                            log.info(`Command [ ${category}/${commands[i]} ] loaded! ✔️`);
-                            loadedCommands++;
-                        }
+                        log.info(`Command [ ${kleur.magenta(`${category}/${commands[i]}`)} ] loaded! ${check}`);
+
+                        loadedCommands++;
 
                     }).catch(error => {
                         log.error(`Error on command: ${commands[i]}`);
@@ -60,17 +69,18 @@ export default class Commands {
 
             }
 
-            let inter = setInterval(() => {
+            let commandsInterval = setInterval(() => {
                 if(loadedCommands == numCommands) {
                     log.info(`⌨️  ${loadedCommands} commands loaded!`);
                     this.set();
-                    clearInterval(inter);
+                    clearInterval(commandsInterval);
                     resolve(true);
                 }
             }, 1);
 
         });
     }
+
     /**
     * Register bot commands
     *
@@ -78,17 +88,23 @@ export default class Commands {
     * @param {object} command
     * @memberof Commands
     */
-    register(name:string, command:object): void {
-        slashCommands.set(name, command);
-        commandsArray.push(command);
+    save(name:string, command:object): void {
+        /* Set command to collector command */
+        commands.set(name, command);
+        /* Push commands to command list */
+        commandList.push(command);
     }
+
     /**
     * Set bot commands
     *
     */
     set(): void {
-        client.application?.commands.set(commandsArray);
+        client.application?.commands.set(commandList).then(() => {
+            this.register();
+        });
     }
+
     /**
      * Check member permissions
      *
@@ -104,6 +120,65 @@ export default class Commands {
             return false;
         } else {
             return true;
+        }
+    }
+
+    /**
+    * Run command on interaction
+    *
+    * @param {*} interaction
+    * @return {*} 
+    * @memberof Commands
+    */
+    run(interaction:any) {
+
+        if(!interaction.isCommand()) return;
+
+        const command:any = commands.get(interaction.commandName);
+        if(!command) return;
+
+        const args:any = [];
+
+        for(let option of interaction.options.data) {
+            if(option.type === "SUB_COMMAND") {
+                if(option.name) { 
+                    args.push(option.name);
+                }
+                option.options.forEach((block:any) => {
+                    if(block.value) { 
+                        args.push(block.value);
+                    }
+                });
+            } else if(option.value) { 
+                args.push(option.value);
+            }
+        }
+
+        interaction.member = interaction.guild.members.cache.get(interaction.user.id);
+        command.run(client, interaction, args);
+    
+    }
+
+    /**
+    * Register command to guild or global 
+    * DEV_MODE=true to dev mode
+    * DEV_MODE=false to production mode
+    *
+    * @memberof Commands
+    */
+    async register() {
+        /* Use dev mode to create new commands */
+        if(devMode == 'true') {
+            /* Unset all global and guild commands */
+            await client.application?.commands.set([]);
+            await client.guilds.cache.get(`${guildID}`)?.commands.set([]);
+            /* Set new commands */
+            await client.guilds.cache.get(`${guildID}`)?.commands.set(commandList);
+        } else { 
+            /* Unset all global commands */
+            await client.application?.commands.set([]);
+            /* Set new commands */
+            await client.application?.commands.set(commandList);
         }
     }
 

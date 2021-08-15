@@ -1,25 +1,25 @@
 import Commands from '../../models/commands';
 import Messages from '../../models/messages';
+import Database from '../../utils/database';
 
 var commands = new Commands();
 var messages = new Messages();
+const db = new Database();
 
 /* Command info */
 var command = {
-    name: 'say',
-    description: 'Send text as a bot with direct message or embed',
+    name: 'language',
+    description: 'Select bot language',
     options: [
         {
-            name: 'message',
-            description: 'Message to say',
+            name: 'select',
+            description: 'Select language for bot',
             type: 'STRING',
-            required: true
-        },
-        {
-            name: 'embed',
-            description: 'Embed message?',
-            type: 'BOOLEAN',
-            required: false
+            required: true,
+            choices: [
+                { name: 'English', value: 'en_US' },
+                { name: 'Spanish', value: 'es_ES' }
+            ]
         }
     ],
     run: async (client:any, interaction:any, args:any) => { 
@@ -35,13 +35,11 @@ var command = {
  * @param {String[]} args
  */
 function callback(client:any, interaction:any, args:any) {
-    if(!commands.permission(interaction, ['MANAGE_MESSAGES'])) return;
-    const [ message, embed ] = args;
-    if(embed) {
-        messages.embed(interaction, { description: message, color: 16759552 }, true);
-    } else {
-        messages.send(interaction, message);
-    }
+    let [ lang ] = args;
+    db.select('guilds', { guild: interaction.guildId }).then((res:any) => {
+        console.log(res[0]);
+        console.log(res[1][0].lang);
+    });
 }
 
 /* Register command */

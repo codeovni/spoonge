@@ -1,5 +1,5 @@
 import fs from 'fs';
-import kleur from 'kleur'
+import kleur from 'kleur';
 import dateFormat from 'dateformat';
 
 const root = fs.realpathSync('./');

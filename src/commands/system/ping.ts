@@ -7,7 +7,7 @@ var messages = new Messages();
 /* Command info */
 var command = {
     name: 'ping',
-    description: 'Show bot\'s ping',
+    description: 'Show bot ping in milliseconds',
     run: async (client:any, interaction:any, args:any) => { 
         callback(client, interaction, args);
     }
@@ -21,8 +21,9 @@ var command = {
  * @param {String[]} args
  */
 function callback(client:any, interaction:any, args:any) {
-    messages.send(interaction, `Pong! My ping is \`${client.ws.ping}\` ms`);
+    let message = `Pong! My ping is ${client.ws.ping}ms`;
+    messages.embed(interaction, { description: message, color: 16759552 });
 }
 
 /* Register command */
-commands.register(command.name, command);
+commands.save(command.name, command);

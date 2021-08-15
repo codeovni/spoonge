@@ -18,11 +18,11 @@ interface EmbedObject {
 }
 
 /**
- * Commands class
+ * Class message helper
  *
  * @class Commands
  */
-export default class Message {
+export default class Messages {
     /**
     * Send text
     *
@@ -69,7 +69,7 @@ export default class Message {
     * @return {*} 
     * @memberof Message
     */
-    embed(interaction:any, content:EmbedObject, noreply:boolean = false) {
+    async embed(interaction:any, content:EmbedObject, noreply:boolean = false) {
 
         const messageEmbed = new MessageEmbed();
 
@@ -114,15 +114,15 @@ export default class Message {
         }
 
         /* Send embed to channel */
-        if(!noreply) {
+        if(noreply) {
+            await interaction.deferReply({ ephemeral: false });
+            await interaction.deleteReply();
+            const channel = await interaction.guild.channels.cache.get(interaction.channelId);
+            return channel.send({ embeds: [ messageEmbed ] });
+
+        } else {
             /* Send embed to interaction */
             return interaction.reply({ embeds: [ messageEmbed ] });
-        } else {
-            /* Delete message of interaction and send embed */
-            interaction.deleteReply().then(() => {
-                const channel = interaction.guild.channels.cache.get(interaction.channelId);
-                return channel.send({ embeds: [ messageEmbed ] });
-            });
         }
         
     }

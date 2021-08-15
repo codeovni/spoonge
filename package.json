@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node ./app/startup.js",
     "build": "npm run clean-build && tsc",
-    "clean": "clean-build && clear-cache",
+    "clean": "npm run clean-build && npm run clean-cache",
     "clean-build": "rimraf app",
-    "clean-cache": "npm cache rm --force && npm cache verify"
+    "clean-cache": "npm cache clean --force && npm cache verify"
   },
   "repository": {
     "type": "git",

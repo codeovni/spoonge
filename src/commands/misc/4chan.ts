@@ -200,4 +200,4 @@ function callback(client:any, interaction:any, args:any) {
 }
 
 /* Register command */
-commands.register(command.name, command);
+commands.save(command.name, command);
