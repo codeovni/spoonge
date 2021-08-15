@@ -102,6 +102,11 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>Show random images from 4chan.org</td>
       <td></td>
     </tr>
+    <tr>
+      <td>8ball</td>
+      <td>The Magic 8 Ball Oracle has answer to all the questions</td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 
