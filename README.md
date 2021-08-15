@@ -67,11 +67,13 @@ https://discord.com/api/oauth2/authorize?client_id=[BOT_CLIENT_ID]&permissions=8
 ### 3. Bot token and mongodb data
 Rename `.env.example` to `.env` and fill the information.
 ```shell
-DATABASE_CLUSTER=[mongodb_cluster_url]
+DATABASE_CLUSTER=[mongodb_cluster_url] # Example: spoonge.aibob.mongodb.net
 DATABASE_NAME=[database_name]
 DATABASE_USERNAME=[db_username]
 DATABASE_PASSWORD=[db_password]
-APP_TOKEN=[discord_bot_token]
+APP_TOKEN=[discord_bot_token] # Token from https://discord.com/developers/applications
+DEV_MODE=[true/false] # Set to false only in production
+GUILD_ID=[your_guild_id] # Only if dev mode is set to true
 ```
 
 # Commands
