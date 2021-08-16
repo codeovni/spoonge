@@ -58,7 +58,7 @@ All commands are created with the new **slash commands** (/) from Discord.
     <tr>
       <td>language</td>
       <td>Select language for bot</td>
-      <td><code>/language</code></td>
+      <td><code>/language select (english/spanish)</code></td>
     </tr>
     <tr>
       <td>ping</td>
