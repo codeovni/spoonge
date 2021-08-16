@@ -31,7 +31,7 @@ All the features you can find in spoonge. *
 The features on this list are still being developed.
 
 - 🎲 **Games**: `slots`, `rps`, `rpsls`, and more
-- 🎉 **Fun**: `4chan`, `8ball`, `fortune`, and more
+- 🎉 **Fun**: `4chan`, `8ball`, `fortune`, `image`, and more
 - 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, `rtd`, and more
 - 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more
 - 🏆 **Level**: `profile`, `leaderboard`, `level`
@@ -43,11 +43,12 @@ The features on this list are still being developed.
 
 It also has other internal features such as:
 
-- Slash commands
+- Ticket system with channels
+- New discord slash commands (/)
 - Welcome and leave messages
-- Advanced auto-moderation and
-- GhostPing messages auto-ban
-- Multi-language support
+- Advanced auto moderation
+- Auto ban GhostPing messages
+- Multi language support
 - Reaction roles
 - Giveaways
 - And much more!
