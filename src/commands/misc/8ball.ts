@@ -18,14 +18,14 @@ var command = {
             required: true,
         }
     ],
-    run: async (client:any, interaction:any, args:any) => { 
+    run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
 }
 
 /**
  * Callback function
- * 
+ *
  * @param {Client} client
  * @param {CommandInteraction} interaction
  * @param {String[]} args
@@ -41,27 +41,27 @@ async function callback(client:any, interaction:any, args:any) {
         let positive = lang["POSITIVE"]
         let neutral = lang["NEUTRAL"]
         let negative = lang["NEGATIVE"]
-    
+
         let category = ['positive', 'neutral', 'negative']
-    
+
         /* 9 ball select category */
         let selectedCategory = category[Math.floor(Math.random() * 3)];
-    
+
         /* 8 ball select positive response */
         if(selectedCategory == 'positive') {
             selectedResponse = positive[Math.floor(Math.random() * 10)];
         } else
-    
+
         /* 8 ball select neutral response */
         if(selectedCategory == 'neutral') {
             selectedResponse = neutral[Math.floor(Math.random() * 5)];
         } else
-        
+
         /* 8 ball select negative response */
         if(selectedCategory == 'negative') {
             selectedResponse = negative[Math.floor(Math.random() * 5)];
         }
-    
+
         /* Send message */
         messages.embed(interaction, true, false, {
             author: {

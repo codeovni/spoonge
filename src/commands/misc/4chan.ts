@@ -144,14 +144,14 @@ var command = {
             ]
         }
     ],
-    run: async (client:any, interaction:any, args:any) => { 
+    run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
 }
 
 /**
  * Callback function
- * 
+ *
  * @param {Client} client
  * @param {CommandInteraction} interaction
  * @param {String[]} args
@@ -183,9 +183,9 @@ function callback(client:any, interaction:any, args:any) {
 
             /* Send image */
             messages.embed(interaction, false, false, {
-                author: { 
-                    name: '4chan.org', 
-                    iconURL: 'https://i.imgur.com/cygTvKG.png', 
+                author: {
+                    name: '4chan.org',
+                    iconURL: 'https://i.imgur.com/cygTvKG.png',
                     URL: 'https://4chan.org'
                 },
                 title: `Random ${type} from 4chan.org/${board}/`,

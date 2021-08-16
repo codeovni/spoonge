@@ -8,14 +8,14 @@ var messages = new Messages();
 var command = {
     name: 'ping',
     description: 'Show bot ping in milliseconds',
-    run: async (client:any, interaction:any, args:any) => { 
+    run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
 }
 
 /**
  * Callback function
- * 
+ *
  * @param {Client} client
  * @param {CommandInteraction} interaction
  * @param {String[]} args

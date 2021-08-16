@@ -22,14 +22,14 @@ var command = {
             required: false
         }
     ],
-    run: async (client:any, interaction:any, args:any) => { 
+    run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
 }
 
 /**
  * Callback function
- * 
+ *
  * @param {Client} client
  * @param {CommandInteraction} interaction
  * @param {String[]} args
@@ -41,7 +41,7 @@ function callback(client:any, interaction:any, args:any) {
     /* Send embed */
     if(embed) {
         messages.embed(interaction, false, false, { description: message, color: 16759552 });
-    } else 
+    } else
 
     /* Send message */
     if(!embed || embed == undefined) {

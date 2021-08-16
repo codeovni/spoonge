@@ -24,14 +24,14 @@ var command = {
             ]
         }
     ],
-    run: async (client:any, interaction:any, args:any) => { 
+    run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
 }
 
 /**
  * Callback function
- * 
+ *
  * @param {Client} client
  * @param {CommandInteraction} interaction
  * @param {String[]} args
@@ -46,8 +46,8 @@ function callback(client:any, interaction:any, args:any) {
         /* English */
         if(langSelected == 'en_US') {
             langSelected = lang['ENGLISH'];
-        } else 
-        
+        } else
+
         /* Spanish */
         if(langSelected == 'es_ES') {
             langSelected = lang['SPANISH'];

@@ -12,7 +12,7 @@ export default class Languages {
     /**
      *  Select lang strings from json file
      *
-     * @param {string} guildid 
+     * @param {string} guildid
      * @param {string} type
      * @param {string} [command='']
      * @memberof Languages
@@ -20,7 +20,7 @@ export default class Languages {
     select(lang:string, type:string, command:string = ''): any {
 
         let langStrings;
-        
+
         /* Command strings */
         if(type == 'command') {
             langStrings = require(root + '/langs/commands/' + command + '/' + lang + '.json');

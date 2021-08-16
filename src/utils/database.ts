@@ -30,13 +30,14 @@ class Database {
             connection.on('connected', () => {
                 log.info('MongoDB has successfully connected');
                 resolve(true);
-    
             });
+
             connection.on('error', (err) => {
                 log.error('MongoDB error:');
                 log.error(err);
                 resolve(false);
             });
+
             connection.on('disconnected', () => {
                 log.info('MongoDB has been disconnected');
                 resolve(false);

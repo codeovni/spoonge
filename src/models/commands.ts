@@ -31,7 +31,7 @@ export default class Commands {
     /**
      * Load all commands
      *
-     * @return {*} 
+     * @return {*}
      * @memberof Commands
      */
     load(): any {
@@ -124,7 +124,7 @@ export default class Commands {
     * Run command on interaction
     *
     * @param {*} interaction
-    * @return {*} 
+    * @return {*}
     * @memberof Commands
     */
     async run(interaction:any): Promise<any> {
@@ -138,22 +138,21 @@ export default class Commands {
 
         for(let option of interaction.options.data) {
             if(option.type === "SUB_COMMAND") {
-                if(option.name) { 
+                if(option.name) {
                     args.push(option.name);
                 }
                 option.options.forEach((block:any) => {
-                    if(block.value) { 
+                    if(block.value) {
                         args.push(block.value);
                     }
                 });
-            } else if(option.value) { 
+            } else if(option.value) {
                 args.push(option.value);
             }
         }
 
         interaction.member = interaction.guild.members.cache.get(interaction.user.id);
         command.run(client, interaction, args);
-    
     }
 
     /**

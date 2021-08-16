@@ -60,7 +60,7 @@ export default class Messages {
      * @param {boolean} [reply=true]
      * @param {boolean} [ephemeral=false]
      * @param {EmbedObject} content
-     * @return {*} 
+     * @return {*}
      * @memberof Messages
      */
     async embed(interaction:any, reply:boolean, ephemeral:boolean, content:EmbedObject) {
@@ -118,7 +118,7 @@ export default class Messages {
                 channel.send({ embeds: [ messageEmbed ] });
             });
         }
-        
+
     }
 
 }
