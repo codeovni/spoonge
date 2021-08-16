@@ -1,6 +1,17 @@
 # 🧽 Spoonge
 This is an open source discord bot. I am creating it with the new Discord command type `slash command` (/) and I am trying to improve it more and more to make a bot with as many options as possible. The bot uses mongodb clusters, but in the future I will include the option to use mysql. When the bot has more functions I will publish it so that anyone can add it to their server directly.
 
+<a href="https://github.com/losdevpath/spoonge">
+  <img src="https://img.shields.io/github/package-json/v/losdevpath/spoonge/master?color=pink&label=Current%20Version" alt="Spoonge Version" />
+</a>
+
+<a href="https://nodejs.org/dist/latest-v16.x/">
+  <img src="https://img.shields.io/static/v1?label=node&message=>=16.6.2&color=success&logo=Node.js&logoColor=white" alt="Node Requirements">
+</a>
+
+<a href="https://www.codefactor.io/repository/github/losdevpath/spoonge">
+  <img src="https://www.codefactor.io/repository/github/losdevpath/spoonge/badge" alt="CodeFactor" />
+</a>
 
 <a href="https://discord.gg/KR25yRg">
   <img src="https://img.shields.io/discord/642006588206350346?color=404eed&label=Discord&logo=discord&logoColor=fff">
@@ -10,21 +21,27 @@ This is an open source discord bot. I am creating it with the new Discord comman
   <img src="https://img.shields.io/badge/discord.js-v13.1.0-green.svg?logo=npm">
 </a>
 
-<a href="https://github.com/users/losdevpath/projects/2">
-  <img src="https://img.shields.io/static/v1?label=&message=Spoonge Project&color=555c63&logo=github&logoColor=FFFFFF">
+<a href="https://github.com/losdevpath/spoonge">
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=losdevpath_spoonge&metric=ncloc" alt="Spoonge code lines" />
 </a>
 
 ## 📋 Features
-These are the characteristics that the bot will have when it is finished.
-- **Admin**: self-role assignment, server announcements
-- **Moderation**: ban, kick, ghostpingban, chat cleanup
-- **Fun**: 8ball, cookie of fortune, roll the dice, russian roulette
-- **Music**: YouTube, playlists, queues
-- **Alerts**: Twitch streams and Youtube videos
-- **Bank System**: slot machine, user credits
-- **Miscelaneous**: giphy random gifs, 4chan random images
-- And more
+All the features you can find in spoonge.
+- 🎲 **Games**: `slots`, `rps`, `rpsls`, and more!
+- 🎉 **Fun**: `4chan`, `8ball`, `fortune`, and more!
+- 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, and more!
+- 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more!
+- 🏆 **Level**: `profile`, `leaderboard`, `level`
+- 🪙 **Economy**: `bank`, `money`, `buy`, `sell`, and more!
+- 💬 **Server**: `automessages`, `selfroles`, `language`, and more!
+- 🎵 **Music**: `music` command with options!
+- 🎁 **Giveways**: `giveway` command with options!
+- 🔞 **NSFW**: `nsfw` command with options!
 
+## 📝 To-Do
+Spoonge is in a continuous state of development. New features/updates may come at any time.
+
+📌 **[View all furure updates here!](https://github.com/users/losdevpath/projects/2)**
 
 ## 🚀 Getting Started
 
