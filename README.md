@@ -13,20 +13,6 @@ This is an open source discord bot. I am creating it with the new Discord comman
 <a href="https://github.com/users/losdevpath/projects/2">
   <img src="https://img.shields.io/static/v1?label=&message=Spoonge Project&color=555c63&logo=github&logoColor=FFFFFF">
 </a>
-<br><br>
-<p>
-[
-  <a href="#getting-started">Installation</a>
-  |
-  <a href="#commands">Commands</a>
-  |
-  <a href="#community">Community</a>
-  |
-  <a href="#libs-used">Libs used</a>
-  |
-  <a href="#license">License</a>
-]
-</p>
 
 ## 📋 Features
 These are the characteristics that the bot will have when it is finished.
