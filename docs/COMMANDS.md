@@ -40,7 +40,7 @@ All commands are created with the new **slash commands** (/) from Discord.
     <tr>
       <td>ping</td>
       <td>Show bot's ping</td>
-      <td>`/ping`</td>
+      <td><code>/ping</code></td>
     </tr>
   </tbody>
 </table>
