@@ -182,7 +182,7 @@ function callback(client:any, interaction:any, args:any) {
             if(extension == '.webm') { type = 'video'; } else if(extension == '.gif') { type = 'gif'; }
 
             /* Send image */
-            messages.embed(interaction, {
+            messages.embed(interaction, false, false, {
                 author: { 
                     name: '4chan.org', 
                     iconURL: 'https://i.imgur.com/cygTvKG.png', 

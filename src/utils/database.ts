@@ -71,7 +71,7 @@ class Database {
      */
     insert(collection:string, values:object) {
         return new Promise((resolve, reject) => {
-            connection.db.collection(collection).insertOne(values);
+            connection.db.collection(collection).insertOne(values).catch(() => {});
             resolve(true);
         });
     }

@@ -23,58 +23,54 @@ interface EmbedObject {
  * @class Commands
  */
 export default class Messages {
+
     /**
-    * Send text
-    *
-    * @param {*} interaction
-    * @param {string} content
-    * @memberof Message
-    */
-    send(interaction:any, content:string) {
+     * Send text message
+     *
+     * @param {*} interaction
+     * @param {boolean} [ephemeral=false]
+     * @param {string} content
+     * @memberof Messages
+     */
+    async send(interaction:any, ephemeral:boolean = false, content:string) {
         /* Delete message of interaction and send embed */
-        interaction.deferReply({ ephemeral: false }).catch(() => {});
-        interaction.deleteReply().then(() => {
+        await interaction.deferReply({ ephemeral: ephemeral });
+        await interaction.deleteReply({ ephemeral: ephemeral }).then(() => {
             const channel = interaction.guild.channels.cache.get(interaction.channelId);
             return channel.send({ content: content });
         });
     }
+
     /**
-    * Reply message
-    *
-    * @param {*} interaction
-    * @param {string} content
-    * @param {boolean} ephemeral
-    * @memberof Message
-    */
-    reply(interaction:any, content:string, ephemeral:boolean) {
-        interaction.reply({ content: content, ephemeral: ephemeral });
-    }
-    /**
-    * FollowUp message
-    *
-    * @param {*} interaction
-    * @param {string} content
-    * @param {boolean} ephemeral
-    * @memberof Message
-    */
-    followUp(interaction:any, content:string, ephemeral:boolean) {
+     * FollowUp message
+     *
+     * @param {*} interaction
+     * @param {boolean} [ephemeral=false]
+     * @param {string} content
+     * @memberof Messages
+     */
+    followUp(interaction:any, ephemeral:boolean = false, content:string) {
         interaction.followUp({ content: content, ephemeral: ephemeral });
     }
+
     /**
-    * Embed message
-    *
-    * @param {*} interaction
-    * @param {*} content
-    * @param {boolean} [noreply=false]
-    * @return {*} 
-    * @memberof Message
-    */
-    async embed(interaction:any, content:EmbedObject, noreply:boolean = false) {
+     * Embed message
+     *
+     * @param {*} interaction
+     * @param {boolean} [reply=true]
+     * @param {boolean} [ephemeral=false]
+     * @param {EmbedObject} content
+     * @return {*} 
+     * @memberof Messages
+     */
+    async embed(interaction:any, reply:boolean, ephemeral:boolean, content:EmbedObject) {
+
+        await interaction.deferReply({ ephemeral: ephemeral });
 
         const messageEmbed = new MessageEmbed();
 
         if(content.title) {
-            messageEmbed.setTitle(`${content.title}`);
+            messageEmbed.setTitle(content.title);
         }
 
         if(content.color) {
@@ -82,7 +78,7 @@ export default class Messages {
         }
 
         if(content.url) {
-            messageEmbed.setURL(`${content.url}`);
+            messageEmbed.setURL(content.url);
         }
 
         if(content.author) {
@@ -90,11 +86,11 @@ export default class Messages {
         }
 
         if(content.description) {
-            messageEmbed.setDescription(`${content.description}`);
+            messageEmbed.setDescription(content.description);
         }
 
         if(content.thumbnail) {
-            messageEmbed.setThumbnail(`${content.thumbnail}`);
+            messageEmbed.setThumbnail(content.thumbnail);
         }
 
         if(content.fields) {
@@ -102,7 +98,7 @@ export default class Messages {
         }
 
         if(content.image) {
-            messageEmbed.setImage(`${content.image}`);
+            messageEmbed.setImage(content.image);
         }
 
         if(content.timestamp) {
@@ -110,19 +106,17 @@ export default class Messages {
         }
 
         if(content.footer) {
-            messageEmbed.setFooter(`${content.footer}`);
+            messageEmbed.setFooter(content.footer);
         }
 
         /* Send embed to channel */
-        if(noreply) {
-            await interaction.deferReply({ ephemeral: false });
-            await interaction.deleteReply();
-            const channel = await interaction.guild.channels.cache.get(interaction.channelId);
-            return channel.send({ embeds: [ messageEmbed ] });
-
+        if(reply) {
+            await interaction.followUp({ embeds: [ messageEmbed ] });
         } else {
-            /* Send embed to interaction */
-            return interaction.reply({ embeds: [ messageEmbed ] });
+            await interaction.deleteReply().then(() => {
+                const channel = interaction.guild.channels.cache.get(interaction.channelId);
+                channel.send({ embeds: [ messageEmbed ] });
+            });
         }
         
     }

@@ -37,10 +37,15 @@ var command = {
 function callback(client:any, interaction:any, args:any) {
     if(!commands.permission(interaction, ['MANAGE_MESSAGES'])) return;
     const [ message, embed ] = args;
+
+    /* Send embed */
     if(embed) {
-        messages.embed(interaction, { description: message, color: 16759552 }, true);
-    } else {
-        messages.send(interaction, message);
+        messages.embed(interaction, false, false, { description: message, color: 16759552 });
+    } else 
+
+    /* Send message */
+    if(!embed || embed == undefined) {
+        messages.send(interaction, false, message);
     }
 }
 

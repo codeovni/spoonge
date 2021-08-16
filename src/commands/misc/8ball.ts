@@ -1,9 +1,10 @@
-import * as https from 'https';
 import Commands from '../../models/commands';
 import Messages from '../../models/messages';
+import Guilds from '../../models/guilds';
 
 var commands = new Commands();
 var messages = new Messages();
+var guilds = new Guilds();
 
 /* Command info */
 var command = {
@@ -12,7 +13,7 @@ var command = {
     options: [
         {
             name: 'question',
-            description: 'Ask the Eight Ball',
+            description: 'Ask the 8 Ball',
             type: 'STRING',
             required: true,
         }
@@ -29,68 +30,48 @@ var command = {
  * @param {CommandInteraction} interaction
  * @param {String[]} args
  */
-function callback(client:any, interaction:any, args:any) {
+async function callback(client:any, interaction:any, args:any) {
 
     let [ message ] = args;
 
+    let lang:any = guilds.lang(interaction.guild.id, 'command', '8ball');
+
     let selectedResponse:string = '';
 
+    let positive:any = []
+    let neutral:any = []
+    let negative:any = []
+
     let category = ['positive', 'neutral', 'negative']
-
-    let positive = [
-        'It is certain.',
-        'It is decidedly so.',
-        'Without a doubt.',
-        'Yes, definitely.',
-        'You may rely on it.',
-        'As I see it, yes.',
-        'Most likely',
-        'Outlook good',
-        'Yes',
-        'Signs point to yes'
-    ]
-
-    let neutral = [
-        'Reply hazy, try again.',
-        'Ask again later.',
-        'Better not tell you now.',
-        'Cannot predict now.',
-        'Concentrate and ask again.'
-    ]
-
-    let negative = [
-        'Don’t count on it.',
-        'My reply is no.',
-        'My sources say no.',
-        'Outlook not so good.',
-        'Very doubtful.'
-    ]
 
     /* 9 ball select category */
     let selectedCategory = category[Math.floor(Math.random() * 3)];
 
     /* 8 ball select positive response */
     if(selectedCategory == 'positive') {
+        positive = await lang["POSITIVE"]
         selectedResponse = positive[Math.floor(Math.random() * 10)];
     } else
 
     /* 8 ball select neutral response */
     if(selectedCategory == 'neutral') {
+        neutral = await lang["NEUTRAL"]
         selectedResponse = neutral[Math.floor(Math.random() * 5)];
     } else
     
     /* 8 ball select negative response */
     if(selectedCategory == 'negative') {
+        negative = await lang["NEGATIVE"]
         selectedResponse = negative[Math.floor(Math.random() * 5)];
     }
 
     /* Send image */
-    messages.embed(interaction, {
+    messages.embed(interaction, true, false, {
         author: {
             name: '8 Ball',
             iconURL: 'https://i.imgur.com/R0fNWzq.png'
         },
-        description: `${interaction.member.user.username} ask:\n**${message}**\n\n8 ball say:\n**${selectedResponse}**`,
+        description: `${interaction.member.user.username} ${lang["ASK"]}:\n**${message}**\n\n${lang["8_BALL_SAY"]}:\n**${selectedResponse}**`,
         color: 1315860
     });
 

@@ -1,0 +1,30 @@
+{
+    "ASK": "pregunta",
+    "8_BALL_SAY": "La bola 8 dice",
+    "POSITIVE": [
+        "Es cierto.",
+        "Es decididamente así.",
+        "Sin duda.",
+        "Sí definitivamente.",
+        "Puedes confiar en ello.",
+        "Como yo lo veo, sí.",
+        "Más que probable",
+        "Perspectivas buenas",
+        "Sí",
+        "Las señales apuntan a que sí"
+    ],
+    "NEUTRAL": [
+        "Respuesta confusa, intenta otra vez.",
+        "Pregunta de nuevo más tarde.",
+        "Mejor no decirte nada por ahora.",
+        "No se puede predecir ahora.",
+        "Concéntrate y pregunta otra vez."
+    ],
+    "NEGATIVE": [
+        "No cuentes con eso.",
+        "Mi respuesta es no.",
+        "Mis fuentes dicen que no.",
+        "Outlook no es tan bueno",
+        "Muy dudoso."
+    ]
+}

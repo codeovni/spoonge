@@ -22,7 +22,7 @@ var command = {
  */
 function callback(client:any, interaction:any, args:any) {
     let message = `Pong! My ping is ${client.ws.ping}ms`;
-    messages.embed(interaction, { description: message, color: 16759552 });
+    messages.embed(interaction, true, false, { description: message, color: 16759552 });
 }
 
 /* Register command */

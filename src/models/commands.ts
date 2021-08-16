@@ -14,8 +14,6 @@ const log = new Logger();
 const root = fs.realpathSync('./app');
 const check = kleur.green('✔');
 
-var devMode = process.env.DEV_MODE;
-var guildID = process.env.GUILD_ID;
 var commandList:any = []
 
 /**
@@ -72,7 +70,6 @@ export default class Commands {
             let commandsInterval = setInterval(() => {
                 if(loadedCommands == numCommands) {
                     log.info(`⌨️  ${loadedCommands} commands loaded!`);
-                    this.set();
                     clearInterval(commandsInterval);
                     resolve(true);
                 }
@@ -96,16 +93,6 @@ export default class Commands {
     }
 
     /**
-    * Set bot commands
-    *
-    */
-    set(): void {
-        client.application?.commands.set(commandList).then(() => {
-            this.register();
-        });
-    }
-
-    /**
      * Check member permissions
      *
      * @param {*} interaction
@@ -116,7 +103,7 @@ export default class Commands {
     async permission(interaction:any, permissions:any):Promise<boolean> {
         const member: GuildMember = interaction.member;
         if(!member.permissions.has(permissions)) {
-            messages.embed(interaction, { title: 'Permissions', description: 'You don\'t have permission to use this command', color: 16722737 } );
+            messages.embed(interaction, true, true, { title: 'Permissions', description: 'You don\'t have permission to use this command', color: 16722737 } );
             return false;
         } else {
             return true;
@@ -130,7 +117,7 @@ export default class Commands {
     * @return {*} 
     * @memberof Commands
     */
-    run(interaction:any) {
+    async run(interaction:any) {
 
         if(!interaction.isCommand()) return;
 
@@ -160,26 +147,13 @@ export default class Commands {
     }
 
     /**
-    * Register command to guild or global 
-    * DEV_MODE=true to dev mode
-    * DEV_MODE=false to production mode
-    *
-    * @memberof Commands
-    */
-    async register() {
-        /* Use dev mode to create new commands */
-        if(devMode == 'true') {
-            /* Unset all global and guild commands */
-            await client.application?.commands.set([]);
-            await client.guilds.cache.get(`${guildID}`)?.commands.set([]);
-            /* Set new commands */
-            await client.guilds.cache.get(`${guildID}`)?.commands.set(commandList);
-        } else { 
-            /* Unset all global commands */
-            await client.application?.commands.set([]);
-            /* Set new commands */
-            await client.application?.commands.set(commandList);
-        }
+     * Get command list
+     *
+     * @return {*}
+     * @memberof Commands
+     */
+    getCommandList() {
+        return commandList;
     }
 
 }
