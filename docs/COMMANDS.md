@@ -17,12 +17,12 @@ All commands are created with the new **slash commands** (/) from Discord.
     <tr>
       <td>4chan</td>
       <td>Show random images from 4chan.org</td>
-      <td>`/4chan board (board)`</td>
+      <td><code>/4chan board (board)</code></td>
     </tr>
     <tr>
       <td>8ball</td>
       <td>The Magic 8 Ball Oracle has answer to all the questions</td>
-      <td>`/8ball (question)`</td>
+      <td><code>/8ball (question)</code></td>
     </tr>
   </tbody>
 </table>
