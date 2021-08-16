@@ -78,14 +78,16 @@ export default class Guilds {
     * @param {string} guildid
     * @memberof Guilds
     */
-    lang(guildid:string, type:string, command:string = '') {
-        let strings:any = []
-        guildsList.map((guild) => {
-            if(guild.id == guildid) {
-                strings = language.select(guild.lang, type, command);
-            }
+    lang(guildid:string, type:string, command:string = ''): Promise<any> {
+        return new Promise((resolve) => {
+            let strings:any = []
+            guildsList.map((guild) => {
+                if(guild.id == guildid) {
+                    strings = language.select(guild.lang, type, command);
+                    resolve(strings);
+                }
+            });
         });
-        return strings;
     }
 
     /**

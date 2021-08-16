@@ -1,3 +1,3 @@
 import EventEmitter from 'events';
-const Event = new EventEmitter();
-export default Event;
+const SpoongeEvent = new EventEmitter();
+export default SpoongeEvent;

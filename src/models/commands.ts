@@ -19,6 +19,9 @@ const check = kleur.green('✔');
 let devMode = process.env.DEV_MODE;
 let commandList:any = []
 
+// Application commands docs
+// https://discord.com/developers/docs/interactions/application-commands
+
 /**
  * Commands class
  *

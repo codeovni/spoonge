@@ -44,15 +44,15 @@ class Database {
         });
     }
     /**
-     * Show collection data
-     *
-     * @param {string} collection
-     * @param {object} values
-     * @returns {array} array
-     * @memberof Database
-     */
+    * Show collection data
+    *
+    * @param {string} collection
+    * @param {object} values
+    * @return {*} {Promise<Object>}
+    * @memberof Database
+    */
     select(collection:string, values:object): Promise<Object> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             connection.db.collection(collection, function (err:any, res:any) {
                 res.find(values).toArray(function(err:string, results:any) {
                     if(err) { log.error('Select error:\n' + err); resolve(false); }
@@ -61,46 +61,48 @@ class Database {
             });
         });
     }
+
     /**
      * Insert data into a collection
      *
      * @param {string} collection
      * @param {object} values
-     * @returns {boolean}
+     * @return {*} {Promise<Boolean>}
      * @memberof Database
      */
     insert(collection:string, values:object): Promise<Boolean> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             connection.db.collection(collection).insertOne(values).catch(() => {});
             resolve(true);
         });
     }
+
     /**
-     * Update data in a collection
-     *
-     * @param {string} collection
-     * @param {object} where
-     * @param {object} values
-     * @returns {boolean}
-     * @memberof Database
-     */
+    * Update data in a collection
+    *
+    * @param {string} collection
+    * @param {object} values
+    * @param {object} where
+    * @return {*} {Promise<Boolean>}
+    * @memberof Database
+    */
     update(collection:string, values:object, where:object): Promise<Boolean> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             connection.db.collection(collection).updateOne(where, { $set: values });
             resolve(true);
         });
     }
+
     /**
      * Remove data from a collection
      *
      * @param {string} collection
-     * @param {object} where
      * @param {object} value
-     * @returns {boolean}
+     * @return {*}  {Promise<Boolean>}
      * @memberof Database
      */
     remove(collection:string, value:object): Promise<Boolean> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             connection.db.collection(collection).deleteOne(value);
             resolve(true);
         });

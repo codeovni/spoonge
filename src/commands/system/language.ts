@@ -59,7 +59,7 @@ function callback(client:any, interaction:any, args:any) {
                 name: `${lang['EMBED_TITLE']}`,
                 iconURL: 'https://i.imgur.com/zMuSskf.png'
             },
-            description:  `${lang['LANG_SELECTED']} ${langSelected}`,
+            description:  `${lang['LANG_SELECTED']} **${langSelected}**`,
             color: 1315860
         });
 
