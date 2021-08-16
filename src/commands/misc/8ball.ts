@@ -65,7 +65,7 @@ async function callback(client:any, interaction:any, args:any) {
         selectedResponse = negative[Math.floor(Math.random() * 5)];
     }
 
-    /* Send image */
+    /* Send message */
     messages.embed(interaction, true, false, {
         author: {
             name: '8 Ball',

@@ -51,7 +51,7 @@ class Database {
      * @returns {array} array
      * @memberof Database
      */
-    select(collection:string, values:object) {
+    select(collection:string, values:object): Promise<Object> {
         return new Promise((resolve, reject) => {
             connection.db.collection(collection, function (err:any, res:any) {
                 res.find(values).toArray(function(err:string, results:any) {
@@ -69,7 +69,7 @@ class Database {
      * @returns {boolean}
      * @memberof Database
      */
-    insert(collection:string, values:object) {
+    insert(collection:string, values:object): Promise<Boolean> {
         return new Promise((resolve, reject) => {
             connection.db.collection(collection).insertOne(values).catch(() => {});
             resolve(true);
@@ -84,7 +84,7 @@ class Database {
      * @returns {boolean}
      * @memberof Database
      */
-    update(collection:string, values:object, where:object) {
+    update(collection:string, values:object, where:object): Promise<Boolean> {
         return new Promise((resolve, reject) => {
             connection.db.collection(collection).updateOne(where, { $set: values });
             resolve(true);
@@ -99,7 +99,7 @@ class Database {
      * @returns {boolean}
      * @memberof Database
      */
-    remove(collection:string, value:object) {
+    remove(collection:string, value:object): Promise<Boolean> {
         return new Promise((resolve, reject) => {
             connection.db.collection(collection).deleteOne(value);
             resolve(true);

@@ -55,7 +55,7 @@ export default class Commands {
                     var commandPath = `../commands/${category}/${commands[i]}`;
 
                     /* Import command */
-                    await import(commandPath).then(res => {
+                    await import(commandPath).then(() => {
 
                         log.info(`Command [ ${kleur.magenta(`${category}/${commands[i]}`)} ] loaded! ${check}`);
 
