@@ -27,7 +27,7 @@ All commands are created with the new **slash commands** (/) from Discord.
   </tbody>
 </table>
 
-### Misc
+### 🧺 Misc
 <table>
   <thead align="center">
     <tr>
@@ -37,6 +37,29 @@ All commands are created with the new **slash commands** (/) from Discord.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>ping</td>
+      <td>Show bot's ping</td>
+      <td><code>/ping</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### 💬 Server
+<table>
+  <thead align="center">
+    <tr>
+      <td><b>📁 Command</b></td>
+      <td><b>📄 Description</b></td>
+      <td><b>📘 Usage</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>language</td>
+      <td>Select language for bot</td>
+      <td><code>/language</code></td>
+    </tr>
     <tr>
       <td>ping</td>
       <td>Show bot's ping</td>
