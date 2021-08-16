@@ -32,11 +32,11 @@ The features on this list are still being developed.
 
 - 🎲 **Games**: `slots`, `rps`, `rpsls`, and more
 - 🎉 **Fun**: `4chan`, `8ball`, `fortune`, `image`, and more
-- 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, `rtd`, `ping`, and more
+- 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, `rtd`, and more
 - 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more
 - 🏆 **Level**: `profile`, `leaderboard`, `level`
 - 🪙 **Economy**: `bank`, `money`, `buy`, `sell`, and more
-- 💬 **Server**: `automessages`, `selfroles`, `language`, and more
+- 💬 **Server**: `automessages`, `selfroles`, `language`, `ping`, `say`, and more
 - 🎵 **Music**: `music` command with options
 - 🎁 **Giveways**: `giveway` command with options
 - 🔞 **NSFW**: `nsfw` command with options
