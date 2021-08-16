@@ -37,6 +37,7 @@ var command = {
  * @param {String[]} args
  */
 function callback(client:any, interaction:any, args:any) {
+    if(!commands.permission(interaction, ['ADMINISTRATOR'])) return;
     let [ langSelected ]:string = args;
     db.update('guilds', { lang: langSelected }, { guild: interaction.guildId }).then((res:any) => {
 

@@ -108,6 +108,11 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>The Magic 8 Ball Oracle has answer to all the questions</td>
       <td></td>
     </tr>
+    <tr>
+      <td>language</td>
+      <td>Change the bot language</td>
+      <td>ADMINISTRATOR</td>
+    </tr>
   </tbody>
 </table>
 
