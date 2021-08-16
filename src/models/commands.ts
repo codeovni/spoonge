@@ -1,6 +1,7 @@
 import { client, commands } from '../utils/bot';
 import { GuildMember } from "discord.js";
 import Messages from './messages';
+import Guilds from './guilds';
 import Logger from '../utils/logger';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -9,12 +10,14 @@ import kleur from 'kleur';
 
 dotenv.config();
 
+const guilds = new Guilds();
 const messages = new Messages();
 const log = new Logger();
 const root = fs.realpathSync('./app');
 const check = kleur.green('✔');
 
-var commandList:any = []
+let devMode = process.env.DEV_MODE;
+let commandList:any = []
 
 /**
  * Commands class
@@ -28,7 +31,7 @@ export default class Commands {
      * @return {*} 
      * @memberof Commands
      */
-    load() {
+    load(): any {
         return new Promise(async (resolve) => {
 
             var folder = fs.readdirSync(path.join(root, '/commands'));
@@ -100,10 +103,14 @@ export default class Commands {
      * @return { Promise<boolean> }
      * @memberof Commands
      */
-    async permission(interaction:any, permissions:any):Promise<boolean> {
+    async permission(interaction:any, permissions:any): Promise<boolean> {
         const member: GuildMember = interaction.member;
         if(!member.permissions.has(permissions)) {
-            messages.embed(interaction, true, true, { title: 'Permissions', description: 'You don\'t have permission to use this command', color: 16722737 } );
+
+
+
+            let lang:any = guilds.lang(interaction.guild.id, 'system');
+            messages.embed(interaction, true, true, { title: lang["PERMISSIONS_TITLE"], description: lang["NO_PERMISSION"], color: 16722737 } );
             return false;
         } else {
             return true;
@@ -117,7 +124,7 @@ export default class Commands {
     * @return {*} 
     * @memberof Commands
     */
-    async run(interaction:any) {
+    async run(interaction:any): Promise<any> {
 
         if(!interaction.isCommand()) return;
 
@@ -152,8 +159,26 @@ export default class Commands {
      * @return {*}
      * @memberof Commands
      */
-    getCommandList() {
+    getCommandList(): any {
         return commandList;
+    }
+
+    /**
+    * Set guild commands
+    *
+    * @param {*} guild
+    * @memberof Guilds
+    */
+    async setCommands(guild:any) {
+        let commandList = this.getCommandList();
+        if(devMode == 'true') {
+            await client.application?.commands.set([]);
+            await client.guilds.cache.get(`${guild.id}`)?.commands.set([]);
+            client.guilds.cache.get(`${guild.id}`)?.commands.set(commandList);
+        } else {
+            await client.application?.commands.set([]);
+            await client.application?.commands.set(commandList);
+        }
     }
 
 }

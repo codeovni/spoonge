@@ -1,18 +1,15 @@
 import { client } from '../utils/bot';
 import Database from '../utils/database';
 import Logger from '../utils/logger';
-import Languages from '../models/languages';
-import Commands from '../models/commands';
+import Languages from './languages';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-let commands = new Commands();
-let language = new Languages();
+const language = new Languages();
 const log = new Logger();
 const db = new Database();
 
-let devMode = process.env.DEV_MODE;
 let guildsList:Array<any> = []
 
 /**
@@ -98,24 +95,6 @@ export default class Guilds {
     */
     getGuildList() {
         return guildsList;
-    }
-
-    /**
-    * Set guild commands
-    *
-    * @param {*} guild
-    * @memberof Guilds
-    */
-    async setCommands(guild:any) {
-        let commandList = commands.getCommandList();
-        if(devMode == 'true') {
-            await client.application?.commands.set([]);
-            await client.guilds.cache.get(`${guild.id}`)?.commands.set([]);
-            client.guilds.cache.get(`${guild.id}`)?.commands.set(commandList);
-        } else {
-            await client.application?.commands.set([]);
-            await client.application?.commands.set(commandList);
-        }
     }
 
     /**

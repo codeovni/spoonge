@@ -1,3 +1,4 @@
 {
-    "SYSTEM_NO_PERMISSIONS": "You don't have permission to use this command"
+    "PERMISSIONS_TITLE": "Permissions Error",
+    "NO_PERMISSIONS": "You don't have permissions to use this command"
 }

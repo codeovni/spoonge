@@ -17,7 +17,7 @@ export default class Languages {
      * @param {string} [command='']
      * @memberof Languages
      */
-    select(lang:string, type:string, command:string = '') {
+    select(lang:string, type:string, command:string = ''): any {
 
         let langStrings;
         
@@ -34,4 +34,5 @@ export default class Languages {
         return langStrings;
 
     }
+
 }
