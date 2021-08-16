@@ -26,17 +26,32 @@ This is an open source discord bot. I am creating it with the new Discord comman
 </a>
 
 ## 📋 Features
-All the features you can find in spoonge.
-- 🎲 **Games**: `slots`, `rps`, `rpsls`, and more!
-- 🎉 **Fun**: `4chan`, `8ball`, `fortune`, and more!
-- 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, and more!
-- 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more!
+
+All the features you can find in spoonge. *
+The features on this list are still being developed.
+
+- 🎲 **Games**: `slots`, `rps`, `rpsls`, and more
+- 🎉 **Fun**: `4chan`, `8ball`, `fortune`, and more
+- 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, `rtd`, and more
+- 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more
 - 🏆 **Level**: `profile`, `leaderboard`, `level`
-- 🪙 **Economy**: `bank`, `money`, `buy`, `sell`, and more!
-- 💬 **Server**: `automessages`, `selfroles`, `language`, and more!
-- 🎵 **Music**: `music` command with options!
-- 🎁 **Giveways**: `giveway` command with options!
-- 🔞 **NSFW**: `nsfw` command with options!
+- 🪙 **Economy**: `bank`, `money`, `buy`, `sell`, and more
+- 💬 **Server**: `automessages`, `selfroles`, `language`, and more
+- 🎵 **Music**: `music` command with options
+- 🎁 **Giveways**: `giveway` command with options
+- 🔞 **NSFW**: `nsfw` command with options
+
+It also has other internal features such as:
+
+- Slash commands
+- Welcome and leave messages
+- Advanced auto-moderation and
+- GhostPing messages auto-ban
+- Multi-language support
+- Reaction roles
+- Giveaways
+- And much more!
+
 
 ## 📝 To-Do
 Spoonge is in a continuous state of development. New features/updates may come at any time.
