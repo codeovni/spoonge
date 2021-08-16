@@ -53,6 +53,13 @@ It also has other internal features such as:
 - Giveaways
 - And much more!
 
+## 🚀 Getting Started
+
+📌 **[View install instructions here!](https://github.com/losdevpath/spoonge/blob/main/docs/INSTALLATION.md)**
+
+## 📁 Commands
+
+📌 **[View all commands here!](https://github.com/losdevpath/spoonge/blob/main/docs/COMMANDS.md)**
 
 ## 📝 To-Do
 Spoonge is in a continuous state of development. New features/updates may come at any time.
