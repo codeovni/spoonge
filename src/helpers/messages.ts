@@ -63,7 +63,72 @@ export default class Messages {
      * @return {*}
      * @memberof Messages
      */
-    async embed(interaction:any, reply:boolean, ephemeral:boolean, content:EmbedObject) {
+    async channelEmbed(channel:any, reply:boolean, ephemeral:boolean, components:any, content:EmbedObject) {
+
+        const messageEmbed = new MessageEmbed();
+
+        if(content.title) {
+            messageEmbed.setTitle(content.title);
+        }
+
+        if(content.color) {
+            messageEmbed.setColor(content.color);
+        }
+
+        if(content.url) {
+            messageEmbed.setURL(content.url);
+        }
+
+        if(content.author) {
+            messageEmbed.setAuthor(content.author.name, content.author.iconURL, content.author.URL);
+        }
+
+        if(content.description) {
+            messageEmbed.setDescription(content.description);
+        }
+
+        if(content.thumbnail) {
+            messageEmbed.setThumbnail(content.thumbnail);
+        }
+
+        if(content.fields) {
+            messageEmbed.setFields(content.fields);
+        }
+
+        if(content.image) {
+            messageEmbed.setImage(content.image);
+        }
+
+        if(content.timestamp) {
+            messageEmbed.setTimestamp();
+        }
+
+        if(content.footer) {
+            messageEmbed.setFooter(content.footer);
+        }
+
+        channel.send({ embeds: [ messageEmbed ] });
+
+        /*const channel = interaction.guild.channels.cache.get(interaction.channelId);
+        if(components) {
+            channel.send({ embeds: [ messageEmbed ], components: [ components ] });
+        } else {
+            channel.send({ embeds: [ messageEmbed ] });
+        }*/
+
+    }
+
+    /**
+     * Embed message
+     *
+     * @param {*} interaction
+     * @param {boolean} [reply=true]
+     * @param {boolean} [ephemeral=false]
+     * @param {EmbedObject} content
+     * @return {*}
+     * @memberof Messages
+     */
+    async interactionEmbed(interaction:any, reply:boolean, ephemeral:boolean, components:any, content:EmbedObject) {
 
         await interaction.deferReply({ ephemeral: ephemeral });
 
@@ -111,11 +176,19 @@ export default class Messages {
 
         /* Send embed to channel */
         if(reply) {
-            await interaction.followUp({ embeds: [ messageEmbed ] });
+            if(components) {
+                await interaction.followUp({ embeds: [ messageEmbed ], components: [ components ] });
+            } else {
+                await interaction.followUp({ embeds: [ messageEmbed ] });
+            }
         } else {
             await interaction.deleteReply().then(() => {
                 const channel = interaction.guild.channels.cache.get(interaction.channelId);
-                channel.send({ embeds: [ messageEmbed ] });
+                if(components) {
+                    channel.send({ embeds: [ messageEmbed ], components: [ components ] });
+                } else {
+                    channel.send({ embeds: [ messageEmbed ] });
+                }
             });
         }
 

@@ -1,5 +1,5 @@
 import Commands from '../../models/commands';
-import Messages from '../../models/messages';
+import Messages from '../../helpers/messages';
 import Database from '../../utils/database';
 import Languages from '../../models/languages';
 
@@ -54,7 +54,7 @@ function callback(client:any, interaction:any, args:any) {
         }
 
         /* Send message */
-        messages.embed(interaction, true, true, {
+        messages.interactionEmbed(interaction, true, true, false, {
             author: {
                 name: `${lang['EMBED_TITLE']}`,
                 iconURL: 'https://i.imgur.com/zMuSskf.png'

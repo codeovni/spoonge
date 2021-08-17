@@ -1,5 +1,5 @@
 import Commands from '../../models/commands';
-import Messages from '../../models/messages';
+import Messages from '../../helpers/messages';
 
 var commands = new Commands();
 var messages = new Messages();
@@ -40,7 +40,7 @@ function callback(client:any, interaction:any, args:any) {
 
     /* Send embed */
     if(embed) {
-        messages.embed(interaction, false, false, { description: message, color: 16759552 });
+        messages.interactionEmbed(interaction, false, false, false, { description: message, color: 16759552 });
     } else
 
     /* Send message */

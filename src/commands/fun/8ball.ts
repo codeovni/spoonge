@@ -1,5 +1,5 @@
 import Commands from '../../models/commands';
-import Messages from '../../models/messages';
+import Messages from '../../helpers/messages';
 import Guilds from '../../models/guilds';
 
 var commands = new Commands();
@@ -63,7 +63,7 @@ async function callback(client:any, interaction:any, args:any) {
         }
 
         /* Send message */
-        messages.embed(interaction, true, false, {
+        messages.interactionEmbed(interaction, true, false, false, {
             author: {
                 name: '8 Ball',
                 iconURL: 'https://i.imgur.com/R0fNWzq.png'

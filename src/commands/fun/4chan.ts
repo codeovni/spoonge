@@ -1,6 +1,6 @@
 import * as https from 'https';
 import Commands from '../../models/commands';
-import Messages from '../../models/messages';
+import Messages from '../../helpers/messages';
 
 var commands = new Commands();
 var messages = new Messages();
@@ -182,7 +182,7 @@ function callback(client:any, interaction:any, args:any) {
             if(extension == '.webm') { type = 'video'; } else if(extension == '.gif') { type = 'gif'; }
 
             /* Send image */
-            messages.embed(interaction, false, false, {
+            messages.interactionEmbed(interaction, false, false, false, {
                 author: {
                     name: '4chan.org',
                     iconURL: 'https://i.imgur.com/cygTvKG.png',

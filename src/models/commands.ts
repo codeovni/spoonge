@@ -1,6 +1,6 @@
 import { client, commands } from '../utils/bot';
 import { GuildMember } from "discord.js";
-import Messages from './messages';
+import Messages from '../helpers/messages';
 import Guilds from './guilds';
 import Logger from '../utils/logger';
 import dotenv from 'dotenv';
@@ -109,11 +109,8 @@ export default class Commands {
     async permission(interaction:any, permissions:any): Promise<boolean> {
         const member: GuildMember = interaction.member;
         if(!member.permissions.has(permissions)) {
-
-
-
             let lang:any = guilds.lang(interaction.guild.id, 'system');
-            messages.embed(interaction, true, true, { title: lang["PERMISSIONS_TITLE"], description: lang["NO_PERMISSION"], color: 16722737 } );
+            messages.interactionEmbed(interaction, true, true, '', { title: lang["PERMISSIONS_TITLE"], description: lang["NO_PERMISSION"], color: 16722737 } );
             return false;
         } else {
             return true;

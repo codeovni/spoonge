@@ -1,5 +1,5 @@
 import Commands from '../../models/commands';
-import Messages from '../../models/messages';
+import Messages from '../../helpers/messages';
 
 var commands = new Commands();
 var messages = new Messages();
@@ -22,7 +22,7 @@ var command = {
  */
 function callback(client:any, interaction:any, args:any) {
     let message = `Pong! My ping is ${client.ws.ping}ms`;
-    messages.embed(interaction, true, false, { description: message, color: 16759552 });
+    messages.interactionEmbed(interaction, true, false, false, { description: message, color: 16759552 });
 }
 
 /* Register command */
