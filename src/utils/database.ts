@@ -73,7 +73,7 @@ class Database {
      */
     insert(collection:string, values:object): Promise<Boolean> {
         return new Promise((resolve) => {
-            connection.db.collection(collection).insertOne(values).catch(() => {});
+            connection.db.collection(collection).insertOne(values).catch((err) => { log.error(err); });
             resolve(true);
         });
     }

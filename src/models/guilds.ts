@@ -28,7 +28,7 @@ export default class Guilds {
         client.guilds.cache.map(guild => {
             db.select('guilds', { guild: guild.id }).then((res:any) => {
                 guildsList.push({ 'id': `${guild.id}`, 'lang': `${res[1][0].lang}` });
-            });
+            }).catch((err) => { log.error(err); });
         });
     }
 
@@ -41,7 +41,7 @@ export default class Guilds {
     async insertToDatabase(guild:any) {
         db.insert('guilds', { "guild": guild.id, "lang": 'en_US' }).then(() => {
             log.info(`Joined new guild ${guild.name} [ID:${guild.id}]`);
-        }).catch(() => {});
+        }).catch((err) => { log.error(err); });
     }
 
     /**
@@ -53,7 +53,7 @@ export default class Guilds {
     async removeFromDatabase(guild:any) {
         db.remove('guilds', { "guild": guild.id }).then(() => {
             log.info(`Leave from guild ${guild.name} [ID:${guild.id}]`);
-        });
+        }).catch((err) => { log.error(err); });
     }
 
     /**
@@ -68,7 +68,7 @@ export default class Guilds {
                 if(!res[0]) {
                     this.insertToDatabase(guild);
                 }
-            });
+            }).catch((err) => { log.error(err); });
         });
     }
 
