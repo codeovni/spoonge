@@ -109,13 +109,6 @@ export default class Messages {
 
         channel.send({ embeds: [ messageEmbed ] });
 
-        /*const channel = interaction.guild.channels.cache.get(interaction.channelId);
-        if(components) {
-            channel.send({ embeds: [ messageEmbed ], components: [ components ] });
-        } else {
-            channel.send({ embeds: [ messageEmbed ] });
-        }*/
-
     }
 
     /**

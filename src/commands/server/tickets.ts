@@ -1,6 +1,4 @@
-import { MessageActionRow } from "discord.js";
 import Commands from '../../models/commands';
-import Messages from '../../helpers/messages';
 import Tickets from '../../models/tickets';
 
 var commands = new Commands();
