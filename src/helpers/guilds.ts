@@ -1,7 +1,7 @@
 import { client } from '../utils/bot';
 import Database from '../utils/database';
 import Logger from '../utils/logger';
-import Languages from './languages';
+import Languages from '../utils/languages';
 import dotenv from 'dotenv';
 
 dotenv.config();

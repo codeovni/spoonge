@@ -1,7 +1,7 @@
-import Commands from '../../models/commands';
+import Commands from '../../helpers/commands';
 import Messages from '../../helpers/messages';
 import Database from '../../utils/database';
-import Languages from '../../models/languages';
+import Languages from '../../utils/languages';
 
 var language = new Languages();
 var commands = new Commands();

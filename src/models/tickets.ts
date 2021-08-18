@@ -1,5 +1,5 @@
 import { MessageActionRow } from "discord.js";
-import Guilds from './guilds';
+import Guilds from '../helpers/guilds';
 import Messages from '../helpers/messages';
 import Buttons from '../helpers/buttons';
 import Database from '../utils/database';
@@ -20,6 +20,16 @@ const global = new Global();
  * @class Tickets
  */
 export default class Tickets {
+
+    async run(interaction:any): Promise<any> {
+
+        if(!interaction.isButton()) return;
+
+        let id = interaction.customId;
+
+        this.createChannel(interaction, id);
+
+    }
 
     /**
     * Create ticket box
@@ -60,10 +70,11 @@ export default class Tickets {
 
                 guilds.lang(interaction.guild.id, 'command', 'tickets').then((lang) => {
 
-                    interaction.deferReply({ content: '', ephemeral: false });
+                    interaction.deferReply({ content: '...', ephemeral: false });
 
                     let embedImage = 'https://i.imgur.com/eiMIlTD.png';
                     if(res[1][0].image) { embedImage = res[1][0].image; }
+
                     let ticketNumber = global.randomNumber(5);
                     let channelName = res[1][0].prefix + '-' + ticketNumber;
                     let channelCategory = res[1][0].parent;
@@ -90,7 +101,6 @@ export default class Tickets {
                         }
 
                         messages.channelEmbed(channel, false, false, false, embedContent);
-
                         interaction.deleteReply();
 
                     });

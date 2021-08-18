@@ -1,6 +1,6 @@
-import Commands from '../../models/commands';
+import Commands from '../../helpers/commands';
 import Messages from '../../helpers/messages';
-import Guilds from '../../models/guilds';
+import Guilds from '../../helpers/guilds';
 
 var commands = new Commands();
 var messages = new Messages();

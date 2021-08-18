@@ -1,4 +1,4 @@
-import Commands from '../../models/commands';
+import Commands from '../../helpers/commands';
 import Messages from '../../helpers/messages';
 
 var commands = new Commands();

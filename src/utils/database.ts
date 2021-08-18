@@ -15,7 +15,7 @@ const connection = mongoose.connection;
 const database = `mongodb+srv://${db_user}:${db_pass}@${cluster}/${db_name}?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 
-class Database {
+export default class Database {
     /**
      * Database connection events
      *
@@ -109,5 +109,3 @@ class Database {
         });
     }
 }
-
-export default Database;

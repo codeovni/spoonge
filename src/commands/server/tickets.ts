@@ -1,4 +1,4 @@
-import Commands from '../../models/commands';
+import Commands from '../../helpers/commands';
 import Tickets from '../../models/tickets';
 
 var commands = new Commands();

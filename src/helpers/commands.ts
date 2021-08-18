@@ -1,20 +1,13 @@
 import { client, commands } from '../utils/bot';
 import { GuildMember } from "discord.js";
-import Messages from '../helpers/messages';
+import Messages from './messages';
 import Guilds from './guilds';
-import Logger from '../utils/logger';
 import dotenv from 'dotenv';
-import fs from 'fs';
-import path from 'path';
-import kleur from 'kleur';
 
 dotenv.config();
 
 const guilds = new Guilds();
 const messages = new Messages();
-const log = new Logger();
-const root = fs.realpathSync('./app');
-const check = kleur.green('✔');
 
 let devMode = process.env.DEV_MODE;
 let commandList:any = []
@@ -28,61 +21,6 @@ let commandList:any = []
  * @class Commands
  */
 export default class Commands {
-    /**
-     * Load all commands
-     *
-     * @return {*}
-     * @memberof Commands
-     */
-    load(): any {
-        return new Promise(async (resolve) => {
-
-            var folder = fs.readdirSync(path.join(root, '/commands'));
-            var folders = folder.filter(folder => !folder.includes('.js'));
-
-            let loadedCommands:number = 0;
-            let numCommands:number = 0;
-
-            /* Load all command folders */
-            for(let i = 0; i < folders.length; i++) {
-
-                var category = folders[i];
-                var catFolder = fs.readdirSync(path.join(root, `/commands/${category}`));
-                var commands = catFolder.filter(file => file.includes('.js'));
-
-                numCommands = numCommands + commands.length;
-
-                /* Load all commands */
-                for(let i = 0; i < commands.length; i++) {
-
-                    var commandPath = `../commands/${category}/${commands[i]}`;
-
-                    /* Import command */
-                    await import(commandPath).then(() => {
-
-                        log.info(`Command [ ${kleur.magenta(`${category}/${commands[i]}`)} ] loaded! ${check}`);
-
-                        loadedCommands++;
-
-                    }).catch(error => {
-                        log.error(`Error on command: ${commands[i]}`);
-                        log.error(error);
-                    });
-
-                }
-
-            }
-
-            let commandsInterval = setInterval(() => {
-                if(loadedCommands == numCommands) {
-                    log.info(`⌨️  ${loadedCommands} commands loaded!`);
-                    clearInterval(commandsInterval);
-                    resolve(true);
-                }
-            }, 1);
-
-        });
-    }
 
     /**
     * Register bot commands

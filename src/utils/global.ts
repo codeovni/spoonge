@@ -12,7 +12,7 @@ export default class Global {
      * @returns {number}
      * @memberof Global
      */
-    randomNumber(length:number) {
+    randomNumber(length:number): number {
         var result           = '';
         var characters       = '123456789';
         var charactersLength = characters.length;
