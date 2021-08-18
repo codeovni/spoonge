@@ -24,6 +24,11 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>The Magic 8 Ball Oracle has answer to all the questions</td>
       <td><code>/8ball (question)</code></td>
     </tr>
+    <tr>
+      <td>fortune</td>
+      <td>Break the cookie to see your fortune</td>
+      <td><code>/fortune</code></td>
+    </tr>
   </tbody>
 </table>
 
