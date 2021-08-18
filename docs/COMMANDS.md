@@ -1,7 +1,7 @@
 
 ## 📁 Commands
 
-All commands are created with the new **slash commands** (/) from Discord.
+All commands are created with the new **slash commands** (/) from Discord. The new commands use `TAB` to complete diferent command options.
 
 
 ### 🎉 Fun
