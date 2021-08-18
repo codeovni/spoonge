@@ -7,7 +7,7 @@ let commands = new Commands();
 /* Command info */
 let command = {
     name: 'fortune',
-    description: 'Break the cookie to see your luck',
+    description: 'Break the cookie to see your fortune',
     run: async (client:any, interaction:any, args:any) => {
         callback(client, interaction, args);
     }
