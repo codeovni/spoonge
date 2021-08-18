@@ -1,6 +1,6 @@
 {
   "name": "spoonge",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "Open source discord bot",
   "main": "./app/index.js",
   "scripts": {
