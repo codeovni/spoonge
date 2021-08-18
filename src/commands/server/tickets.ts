@@ -1,11 +1,11 @@
 import Commands from '../../helpers/commands';
 import Tickets from '../../models/tickets';
 
-var commands = new Commands();
-var tickets = new Tickets();
+let commands = new Commands();
+let tickets = new Tickets();
 
 /* Command info */
-var command = {
+let command = {
     name: 'tickets',
     description: 'Ticket system commands',
     options: [
@@ -94,7 +94,7 @@ function callback(client:any, interaction:any, args:any) {
             title: title,
             description: description,
             image: image,
-            buttonId: buttonId,
+            buttonId: 'ticket-' + buttonId,
             buttonName: buttonName,
             category: categoryId,
             channelPrefix: channelPrefix,

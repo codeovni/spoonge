@@ -21,4 +21,15 @@ export default class Global {
         }
         return parseInt(result);
     }
+    /**
+     * Genera un número aleatorio entre dos números
+     *
+     * @param {number} first
+     * @param {number} second
+     * @returns number
+     * @memberof Global
+     */
+     randomNumberBetween(min:number, max:number) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }

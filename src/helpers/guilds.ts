@@ -6,9 +6,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const language = new Languages();
-const log = new Logger();
-const db = new Database();
+let language = new Languages();
+let log = new Logger();
+let db = new Database();
 
 let guildsList:Array<any> = []
 

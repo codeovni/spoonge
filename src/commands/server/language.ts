@@ -3,13 +3,13 @@ import Messages from '../../helpers/messages';
 import Database from '../../utils/database';
 import Languages from '../../utils/languages';
 
-var language = new Languages();
-var commands = new Commands();
-var messages = new Messages();
-const db = new Database();
+let language = new Languages();
+let commands = new Commands();
+let messages = new Messages();
+let db = new Database();
 
 /* Command info */
-var command = {
+let command = {
     name: 'language',
     description: 'Select bot language',
     options: [

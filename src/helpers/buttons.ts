@@ -7,12 +7,16 @@ import { MessageButton } from "discord.js";
  */
 export default class Buttons {
 
-    new(id:string, label:string, url:any, style:any, disabled:boolean) {
+    new(id:string, emoji:any, label:string, url:any, style:any, disabled:boolean) {
 
         const button = new MessageButton();
 
         if(id) {
             button.setCustomId(id);
+        }
+
+        if(emoji) {
+            button.setEmoji(emoji);
         }
 
         if(label) {

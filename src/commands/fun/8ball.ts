@@ -2,12 +2,12 @@ import Commands from '../../helpers/commands';
 import Messages from '../../helpers/messages';
 import Guilds from '../../helpers/guilds';
 
-var commands = new Commands();
-var messages = new Messages();
-var guilds = new Guilds();
+let commands = new Commands();
+let messages = new Messages();
+let guilds = new Guilds();
 
 /* Command info */
-var command = {
+let command = {
     name: '8ball',
     description: 'The Magic 8 Ball Oracle has answer to all the questions',
     options: [

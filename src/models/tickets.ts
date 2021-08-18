@@ -5,14 +5,16 @@ import Buttons from '../helpers/buttons';
 import Database from '../utils/database';
 import Global from '../utils/global';
 import dotenv from 'dotenv';
+import Logger from '../utils/logger';
 
 dotenv.config();
 
-const guilds = new Guilds();
-const db = new Database();
-const messages = new Messages();
-const buttons = new Buttons();
-const global = new Global();
+let log = new Logger();
+let guilds = new Guilds();
+let db = new Database();
+let messages = new Messages();
+let buttons = new Buttons();
+let global = new Global();
 
 /**
  * Tickets bot class
@@ -21,13 +23,21 @@ const global = new Global();
  */
 export default class Tickets {
 
+    /**
+     * Create channel
+     *
+     * @param {*} interaction
+     * @return {*}  {Promise<any>}
+     * @memberof Tickets
+     */
     async run(interaction:any): Promise<any> {
 
-        if(!interaction.isButton()) return;
-
         let id = interaction.customId;
+        let isTicket = id.includes("ticket");
 
-        this.createChannel(interaction, id);
+        if(isTicket) {
+            this.createChannel(interaction, id);
+        }
 
     }
 
@@ -51,10 +61,17 @@ export default class Tickets {
         }
 
         db.insert('tickets', dbOptions).then(() => {
-            const button = buttons.new(options.buttonId, options.buttonName, false, 'SUCCESS', false);
+            const button = buttons.new(options.buttonId, options.emoji, options.buttonName, false, 'PRIMARY', false);
             const buttonRow = new MessageActionRow().addComponents(button);
-            messages.interactionEmbed(interaction, false, false, buttonRow, { title: options.title, description: options.description, color: 16759552 });
-        }).catch(() => {});
+            messages.interactionEmbed(interaction, false, false, buttonRow, {
+                author: {
+                    name: `${options.title}`,
+                    iconURL: `${options.image}`
+                },
+                description: options.description,
+                color: 16759552
+            });
+        }).catch((err) => { log.error('[Tickets] ' + err); });
     }
 
     /**
@@ -85,7 +102,7 @@ export default class Tickets {
                         parent: `${channelCategory}`,
                         type: 'text',
                         permissionOverwrites: [
-                            { id: interaction.user.id, allow: ['SEND_MESSAGES', 'VIEW_CHANNEL'] },
+                            { id: interaction.user.id, allow: ['SEND_MESSAGES', 'VIEW_CHANNEL', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY'] },
                             { id: interaction.guild.roles.everyone,  deny: ['VIEW_CHANNEL'] }
                         ]
                     }).then(async (channel:any) => {
@@ -100,15 +117,18 @@ export default class Tickets {
                             footer: `ID: ${ticketNumber} | ${lang['FOOTER_OPENED_BY']} ${interaction.user.username}#${interaction.user.discriminator}`
                         }
 
-                        messages.channelEmbed(channel, false, false, false, embedContent);
+                        let messageContent = `<@${interaction.user.id}>`;
+
+                        messages.channelEmbed(channel, embedContent);
+                        messages.channelSend(channel, messageContent);
                         interaction.deleteReply();
 
-                    });
-                });
+                    }).catch((err:any) => { log.error('[Tickets] ' + err); });
+                }).catch((err:any) => { log.error('[Tickets] ' + err); });
 
             }
 
-        });
+        }).catch((err:any) => { log.error('[Tickets] ' + err); });
 
     }
 

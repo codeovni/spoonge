@@ -57,7 +57,11 @@ export default class Database {
             connection.db.collection(collection, function (err:any, res:any) {
                 res.find(values).toArray(function(err:string, results:any) {
                     if(err) { log.error('Select error:\n' + err); resolve(false); }
-                    resolve([true, results]);
+                    if(results) {
+                        resolve([true, results]);
+                    } else {
+                        resolve([false, null]);
+                    }
                 });
             });
         });

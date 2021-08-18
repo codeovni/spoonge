@@ -1,11 +1,11 @@
 import Commands from '../../helpers/commands';
 import Messages from '../../helpers/messages';
 
-var commands = new Commands();
-var messages = new Messages();
+let commands = new Commands();
+let messages = new Messages();
 
 /* Command info */
-var command = {
+let command = {
     name: 'say',
     description: 'Send text as a bot with direct message or embed',
     options: [
@@ -45,7 +45,7 @@ function callback(client:any, interaction:any, args:any) {
 
     /* Send message */
     if(!embed || embed == undefined) {
-        messages.send(interaction, false, message);
+        messages.interactionSend(interaction, false, message);
     }
 }
 

@@ -7,10 +7,10 @@ import kleur from 'kleur';
 
 dotenv.config();
 
-const log = new Logger();
-const token = process.env.APP_TOKEN;
-const root = fs.realpathSync('./app');
-const check = kleur.green('✔');
+let log = new Logger();
+let token = process.env.APP_TOKEN;
+let root = fs.realpathSync('./app');
+let check = kleur.green('✔');
 
 /**
  * Spoonge bot class

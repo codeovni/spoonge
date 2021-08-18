@@ -2,9 +2,10 @@ import { client } from '../utils/bot';
 import Guilds from '../helpers/guilds';
 import Commands from '../helpers/commands';
 
-const guilds = new Guilds();
-const commands = new Commands();
+let guilds = new Guilds();
+let commands = new Commands();
 
+/* Bot ready */
 client.on("ready", () => { guilds.load(); guilds.insertNewGuildsToDatabase(); });
 
 /* Guild create */

@@ -1,12 +1,28 @@
 import { client } from '../utils/bot';
 import Tickets from '../models/tickets';
+import Fortune from '../models/fortune';
 import Commands from '../helpers/commands';
 
-const tickets = new Tickets();
-const commands = new Commands();
+let tickets = new Tickets();
+let commands = new Commands();
+let fortune = new Fortune();
 
 /* Interaction create */
 client.on("interactionCreate", async (interaction:any) => {
-    commands.run(interaction);
-    tickets.run(interaction);
+
+    /* Commands */
+    if(interaction.isCommand()) {
+        commands.run(interaction);
+    }
+
+    /* Tickets */
+    if(interaction.isButton()) {
+        tickets.run(interaction);
+    }
+
+    /* Fortune cookies */
+    if(interaction.isButton()) {
+        fortune.breakCookie(interaction);
+    }
+
 });

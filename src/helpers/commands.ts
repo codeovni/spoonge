@@ -6,8 +6,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const guilds = new Guilds();
-const messages = new Messages();
+let guilds = new Guilds();
+let messages = new Messages();
 
 let devMode = process.env.DEV_MODE;
 let commandList:any = []
