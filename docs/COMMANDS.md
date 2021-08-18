@@ -65,5 +65,10 @@ All commands are created with the new **slash commands** (/) from Discord.
       <td>Show bot's ping</td>
       <td><code>/ping</code></td>
     </tr>
+    <tr>
+      <td>tickets</td>
+      <td>Create a ticket box</td>
+      <td><code>/tickets create (options)</code></td>
+    </tr>
   </tbody>
 </table>
