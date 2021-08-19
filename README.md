@@ -34,7 +34,7 @@ The features on this list are still being developed.
 - 🎉 **Fun**: `4chan`, `8ball`, `fortune`, `image`, and more
 - 🧺 **Misc**: `about`, `invite`, `status`, `support`, `polls`, `rtd`, and more
 - 🚨 **Moderation**: `ban`, `kick`, `clear`, `warn`, `report`, `mute` and more
-- 🏆 **Level**: `profile`, `leaderboard`, `level`
+- 🏆 **Member**: `profile`, `leaderboard`, `level`, and more
 - 🪙 **Economy**: `bank`, `money`, `buy`, `sell`, and more
 - 💬 **Server**: `automessages`, `selfroles`, `language`, `ping`, `say`, and more
 - 🎵 **Music**: `music` command with options
