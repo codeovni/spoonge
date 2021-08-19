@@ -61,7 +61,7 @@ export default class Tickets {
         }
 
         db.insert('tickets', dbOptions).then(() => {
-            const button = buttons.new(options.buttonId, options.emoji, options.buttonName, false, 'PRIMARY', false);
+            const button = buttons.new(options.buttonId, options.buttonEmoji, options.buttonName, false, 'PRIMARY', false);
             const buttonRow = new MessageActionRow().addComponents(button);
             messages.interactionEmbed(interaction, false, false, buttonRow, {
                 author: {

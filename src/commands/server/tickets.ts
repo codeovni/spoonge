@@ -51,6 +51,12 @@ let command = {
                     required: true
                 },
                 {
+                    name: 'button-emoji',
+                    description: 'Emoji of button',
+                    type: 'STRING',
+                    required: false
+                },
+                {
                     name: 'channel-prefix',
                     description: 'Ticket channels prefix (Example: ticket)',
                     type: 'STRING',
@@ -88,7 +94,7 @@ function callback(client:any, interaction:any, args:any) {
 
     if(args[0] == 'create') {
 
-        const [ _, title, description, image, categoryId, buttonId, buttonName, channelPrefix, embedTitle, embedMessage ] = args;
+        const [ _, title, description, image, categoryId, buttonId, buttonName, buttonEmoji, channelPrefix, embedTitle, embedMessage ] = args;
 
         let boxOptions = {
             title: title,
@@ -96,6 +102,7 @@ function callback(client:any, interaction:any, args:any) {
             image: image,
             buttonId: 'ticket-' + buttonId,
             buttonName: buttonName,
+            buttonEmoji: buttonEmoji,
             category: categoryId,
             channelPrefix: channelPrefix,
             embedTitle: embedTitle,
